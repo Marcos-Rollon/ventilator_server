@@ -1,0 +1,34 @@
+PROMP PARA METER CONTEXTO EN PARTES
+
+I'm going to give you some context about the Andalucia Respira Project, to ask for your help latter in some regars. As I'll provide the context in several messages,
+I want you to reply "Ok" if you understood the context, followed by 1 simple sentence that summarizes what I told you. Keep doing this until I formulate a question.
+
+CONTEXTO ANDALUCIA RESPIRA
+
+Andalucia Respira is an Spanish project that was born in the begining of the COVID pandemic. This project consisted in the creation of a
+mechanical ventilator using industrial and easy to find parts to help patients with COVID in the context of a world shortage of 
+medical materials and closed frontiers, keeping the cost very low. The project passed all regulations and was  used to save lives. After the situation got better,
+the project continues to improve the initial ventilator, adding functionality avaliable in the normal comercial versions, as well as providing
+Academia an open hardware an cheap and robust way to do research in the mechanical ventilation world.
+
+
+CONTEXTO ARTÍCULOS ANDALUCÍA RESPIRA
+
+The project won several awards, and from it two papers were born. One, detailing the construction and regulation passed in the context of the pandemic, and the second
+talking about the control (as in control engineering) of the pressure input to the lungs, using ON/OFF valves, with the modeling of the lung and respiratory system included. The model was
+tested with some expermients.
+
+CONTEXTO COSAS ACTUALES QUE SE ESTÁN HACIENDO
+
+Right now, the research of the 2.0 version of the ventilator is focused on putting it in a new box, with better components (for example, proportional valves instead of ON/OFF)
+and testing in this new hardware the control ecuations
+
+BULLET POINTS SYSTEM COMPONENTS
+
+-The physical components of the ventilator are: two proportional valves, one for the input and one for the output, two flow sensors, one in the input and one in the output, two pressure sensors, one in the input and one in the output, a PLC with several modules to adecuate all signals and actuators, a microcomputer that takes care of external communications, a battery bank that also is connected to the PLC for monitorizing the state, an input and manual pressure switch for calibration of the input pressure, one mechanical safety valve that becames open in the event of overpressure,  an ethernet switch to communicate all the devices, a resistive touchscreen to interact with the ventilator and buzzer with incorporated light
+
+- The use of sensors in the input and the output is both, to have redundancy, and to improve the measurements, since we cannot put sensors directly on the mouth of the patien or the lungs
+
+- Additionally, thanks to the microcomputer, you can connect an external device, like a phone or another microcomputer, to have a better visualization with a multiplatform app that was created. This app does not interfere with the device, so it does not compromises the performance or incresases the errors in any way
+
+- The ventilator needs an external source of air and oxigen, like the ones that they have in hospitals. New lines of investigation are being developed for the creation of an air mixer that can select the % of oxigen, but is not included yet

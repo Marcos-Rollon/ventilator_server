@@ -1,0 +1,30 @@
+########## PRESSURE SUPPORT VENTILATION ( PSV ) ##########
+
+Cita de un artículo (https://erj.ersjournals.com/content/20/4/925):
+
+Pressure support ventilation (PSV) is a pressure-limited, flow-cycled mode of assisted ventilation, in which each breath is supported 
+by a constant level of pressure at the airway (Paw), so that the tidal volume (VT) and inspiratory flow are more adaptable to the patient's 
+own ventilatory demand 6. This manner of supporting the patient's own ventilatory effort may be responsible for an improved comfort and
+synchrony with the ventilator, and has been shown to reduce the WOB and prevent diaphragmatic fatigue in patients with respiratory failure. 
+The main disadvantage of PSV is that it only works best in patients with stable respiratory conditions (i.e. an adequate sufficient
+ventilatory drive and somewhat preserved respiratory mechanics 8, 9).
+
+*Versión corta*: Controlamos presión, se añade un trigger para disparar otra respiración con más o menos sensibilidad.
+
+Parámetros: 
+type PressureSupportVentilationParams = {
+    plateauPressure: number; // Presión plateau (mbar). Presión peek sera medida, no se setea
+    peep: number; // Presión peep (mbar)
+    respiratoryFrequency: number; // Frecuencia respiratoria (resp/min)
+    i: number; // I de I:E
+    e: number; // E de I:E
+    tidalVolumelMax: number; // Valor máximo de volumen tidal para alarmas (ml)
+    tidalVolumeMin: number; // Valor mínimo de volumen tidal para alarmas (ml)
+    trigger: number; // Sensibilidad en mbars para la detección de nueva respiración.
+}
+
+########## ASSIST CONTROL VENTILATION ( ACV ) ##########
+
+Extremadamente similar a PSV (leer el mismo artículo citado para una definición) donde controlamos volumen tidal
+
+// TODO Parámetros;
