@@ -1,3 +1,4 @@
+import { BreathDataChannel } from "./channels/breath_data_channel";
 import { ChannelManager } from "./channels/channel_manager";
 import { SensorDataChannel } from "./channels/sensor_data_channel";
 import { SensorData } from "./data/sensor_data";
@@ -15,7 +16,7 @@ const MACHINE_CONTROL_CHANNEL_PORT = 10005;
 
 // Create all channels
 const sensorDataChannel = new SensorDataChannel(new UDPChannelManager(SENSOR_DATA_PORT, VENTILATOR_IP));
-const breathDataChannel = new UDPChannelManager(BREATH_DATA_PORT, VENTILATOR_IP);
+const breathDataChannel = new BreathDataChannel(new UDPChannelManager(BREATH_DATA_PORT, VENTILATOR_IP));
 const alarmChannel = new UDPChannelManager(ALARM_CHANNEL_PORT, VENTILATOR_IP);
 const machineStatusChannel = new UDPChannelManager(MACHINE_STATUS_CHANNEL_PORT, VENTILATOR_IP);
 const debugChannel = new UDPChannelManager(DEBUG_CHANNEL_PORT, VENTILATOR_IP);
@@ -28,6 +29,9 @@ function main() {
     channelManager.init()
     channelManager.onNewSensorData(handleSensorData);
 
+    breathDataChannel.onNewBreathData((data) => {
+        console.log(data);
+    })
     websocketManager.init();
 }
 
