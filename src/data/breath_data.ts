@@ -45,4 +45,21 @@ export class BreathData {
 
         return breathData;
     }
+
+    /**
+ * Serializes the BreathData instance to a JSON object.
+ */
+    toJSON(): Record<string, any> {
+        return {
+            peepPressure: this.peepPressure,
+            peakPressure: this.peakPressure,
+            pleateauPressure: this.pleateauPressure,
+            tidalVolume: this.tidalVolume,
+            respiratoryFrequency: this.respiratoryFrequency,
+            inspiratoryConstant: this.inspiratoryConstant,
+            expiratoryConstant: this.expiratoryConstant,
+            staticCompilance: this.staticCompilance,
+            timestamp: this.timestamp,
+        };
+    }
 }

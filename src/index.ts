@@ -1,6 +1,7 @@
 import { BreathDataChannel } from "./channels/breath_data_channel";
 import { ChannelManager } from "./channels/channel_manager";
 import { SensorDataChannel } from "./channels/sensor_data_channel";
+import { BreathData } from "./data/breath_data";
 import { SensorData } from "./data/sensor_data";
 import { UDPChannelManager } from "./managers/udp_channel/udp_channel_manager";
 import { WebsocketManager } from "./managers/websocket_manager/websocket_manager";
@@ -29,14 +30,24 @@ function main() {
     channelManager.init()
     channelManager.onNewSensorData(handleSensorData);
 
-    breathDataChannel.onNewBreathData((data) => {
-        console.log(data);
-    })
+    breathDataChannel.onNewBreathData(handleBreathData);
     websocketManager.init();
 }
 
+/**
+ * Handles incoming sensor data from the ventilator
+ * @param data Sensor Data
+ */
 function handleSensorData(data: SensorData) {
     websocketManager.emit(WebsocketManager.EVENTS.sensorData, data.toJSON());
+}
+
+/**
+ * Handles incoming breath data from the ventilator
+ * @param data 
+ */
+function handleBreathData(data: BreathData) {
+    websocketManager.emit(WebsocketManager.EVENTS.breathData, data.toJSON());
 }
 
 
