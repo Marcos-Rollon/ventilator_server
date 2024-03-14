@@ -17,6 +17,12 @@ export class CsvWriter {
     ];
     private constructor() { };
 
+    /**
+     * Write sensor data to a CSV file.
+     *
+     * @param {SensorData[]} data - array of sensor data to be written to the CSV file
+     * @return {Promise<boolean>} a promise that resolves to a boolean indicating if the writing was successful
+     */
     static writeSensorData(data: SensorData[]): Promise<boolean> {
         return new Promise((resolve, reject) => {
             const currentDate = format(new Date(), 'yyyy_MM_dd_HH_mm');
@@ -49,6 +55,12 @@ export class CsvWriter {
         });
     }
 
+    /**
+     * Read sensor data from a CSV file.
+     *
+     * @param {string} filePath - the path to the CSV file
+     * @return {Promise<SensorData[]>} a promise that resolves with an array of SensorData objects
+     */
     static readSensorDataFromCsv(filePath: string): Promise<SensorData[]> {
         return new Promise((resolve, reject) => {
             const sensorDataList: SensorData[] = [];

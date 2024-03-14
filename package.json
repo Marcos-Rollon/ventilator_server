@@ -11,6 +11,7 @@
     "predev": "npm run clearbuild",
     "dev": "nodemon",
     "nodemon": "nodemon",
+    "tfg": "npx ts-node ./src/tfg.ts",
     "production": "npx tsc --build "
   },
   "keywords": [],

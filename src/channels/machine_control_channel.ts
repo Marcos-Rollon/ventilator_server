@@ -32,7 +32,7 @@ export class MachineControl {
     }
 
     /**
-     * Change the params for the Pressure Support Ventilation mode
+     * Change the params for the Pressure Support Ventilatioan mode
      * @param params Ventilation params
      */
     changeParamsPressureSupportVentilation(params: PressureSupportVentilationParams) {
